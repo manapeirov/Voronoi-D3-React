@@ -1,38 +1,200 @@
-.App {
+svg {
+  background: white;
+  overflow: visible;
+  display: block;
+  margin: auto;
+  width: 400px;
+  height: 400px;
+  margin-top: 3rem;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  height: 100vh;
+  padding: 0 50px;
+}
+
+h1,
+h2 {
+  display: block;
+  margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  letter-spacing: 0.05em;
+  color: #686868;
+}
+
+.voronoi {
+  fill: none;
+  stroke: #000000;
+  stroke-width: 1.12199998;
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* buttons */
+
+.voronoi-chart-buttons {
+  width: 965px;
+  border-radius: 15.5px;
+  border: 1px solid #a4a4a4;
+  color: #a4a4a4;
+}
+
+.toggle-wrapper {
+  width: 965px;
+  margin: 0 auto;
+  padding-top: 2rem;
+}
+
+.lead-lag-buttons {
+  width: 965px;
+  margin: 0 auto;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+
+.kpiSubCategory-buttons {
+  margin: 0 auto;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
+.lead-button {
+  width: 49%;
+
+  margin-right: 1%;
+
+  height: 1.63rem;
+  cursor: pointer;
+  display: inline-block;
+  background-color: transparent;
+  color: #606060;
+  border: 1px solid #a4a4a4;
+  border-radius: 15.5px;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 550;
+  letter-spacing: 0.05em;
+  transition: all 0.15s;
+  outline: none;
+}
+
+.lag-button {
+  width: 49%;
+
+  margin-left: 1%;
+
+  height: 1.63rem;
+  cursor: pointer;
+  display: inline-block;
+  background-color: transparent;
+  color: #606060;
+  border: 1px solid #a4a4a4;
+  border-radius: 15.5px;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 550;
+  letter-spacing: 0.05em;
+  transition: all 0.15s;
+  outline: none;
+}
+
+.voronoi-chart-button {
+  width: 25%;
+  font-size: 11px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 550;
+  letter-spacing: 0.05em;
+  line-height: 15px;
+  background-color: transparent;
+  color: #606060;
+  border-radius: 15.5px;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  padding: 3px 20px 3px 12px;
+  outline: none;
+  cursor: pointer;
+  height: 1.63rem;
+}
+
+.kpiSubCategory-button {
+  margin: 5px;
+  width: 315px;
+  height: auto;
+  max-height: 2.3rem;
+  min-height: 1.63rem;
+
+  padding: 0.5em 3em;
+
+  text-transform: uppercase;
+  cursor: pointer;
+  display: inline-block;
+  background-color: transparent;
+  color: #606060;
+  border: 1px solid #a4a4a4;
+  border-radius: 15.5px;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 550;
+  letter-spacing: 0.05em;
+  transition: all 0.15s;
+  outline: none;
+}
+
+button:hover {
+  color: #dddddd;
+  border-color: #dddddd;
+}
+
+.voronoi-chart-button:hover {
+  border-color: transparent;
+}
+
+.tooltip {
+  position: absolute;
+  text-align: center;
+  font: 18px "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75px;
+  width: 430px;
+  cursor: default;
+  background-color: transparent;
+  color: black;
+  border-top: 5px solid #94cea5;
+  border-bottom: 2px solid #ccc;
+  border-radius: 25px;
+}
+
+/* d3 annotation tooltip styling */
+
+.annotation-note-bg {
+  fill: #94cea5;
+  /* stroke: #a4a4a4;
+  stroke-width: 5px; */
+  /* stroke-linecap: round; */
+  fill-opacity: 0.3;
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.annotation-connector {
+  pointer-events: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.annotation-note-label {
+  font-size: 20px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
